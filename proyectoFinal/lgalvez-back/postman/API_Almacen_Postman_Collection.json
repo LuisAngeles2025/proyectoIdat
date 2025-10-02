@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "api-almacen-collection",
+		"name": "API Sistema de Almacén",
+		"description": "Colección completa para testear todos los endpoints del sistema de gestión de almacén",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test API",
+			"item": [
+				{
+					"name": "Test API Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/test",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"test"
+							]
+						},
+						"description": "Endpoint para verificar que la API está funcionando correctamente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medidas",
+			"item": [
+				{
+					"name": "Crear Medida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Kilogramo\",\n    \"simbolo\": \"kg\",\n    \"descripcion\": \"Unidad de masa del Sistema Internacional\",\n    \"tipo\": \"peso\",\n    \"factor_conversion\": 1.0000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/medidas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas"
+							]
+						},
+						"description": "Crear una nueva medida"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todas las Medidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/medidas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas"
+							]
+						},
+						"description": "Obtener todas las medidas registradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Medida por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/medidas/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas",
+								"1"
+							]
+						},
+						"description": "Obtener una medida específica por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Medidas por Tipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/medidas/tipo/peso",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas",
+								"tipo",
+								"peso"
+							]
+						},
+						"description": "Obtener medidas filtradas por tipo (peso, volumen, longitud, unidad)"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Medida",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Kilogramo Actualizado\",\n    \"simbolo\": \"kg\",\n    \"descripcion\": \"Unidad de masa actualizada\",\n    \"tipo\": \"peso\",\n    \"factor_conversion\": 1.0000,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/medidas/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas",
+								"1"
+							]
+						},
+						"description": "Actualizar una medida existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Medida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/medidas/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"medidas",
+								"1"
+							]
+						},
+						"description": "Eliminar una medida"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Almacenes Principales",
+			"item": [
+				{
+					"name": "Crear Almacén Principal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Almacén Central\",\n    \"direccion\": \"Av. Principal 123, Ciudad\",\n    \"telefono\": \"+1234567890\",\n    \"email\": \"central@empresa.com\",\n    \"responsable\": \"Juan Pérez\",\n    \"capacidad_total\": 1000,\n    \"capacidad_disponible\": 800,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal"
+							]
+						},
+						"description": "Crear un nuevo almacén principal"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos los Almacenes Principales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal"
+							]
+						},
+						"description": "Obtener todos los almacenes principales"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Almacenes Principales Activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal/activos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal",
+								"activos"
+							]
+						},
+						"description": "Obtener solo los almacenes principales activos"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Almacén Principal por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal",
+								"1"
+							]
+						},
+						"description": "Obtener un almacén principal específico por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Almacén Principal",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Almacén Central Actualizado\",\n    \"direccion\": \"Av. Principal 456, Ciudad\",\n    \"telefono\": \"+1234567890\",\n    \"email\": \"central@empresa.com\",\n    \"responsable\": \"María García\",\n    \"capacidad_total\": 1200,\n    \"capacidad_disponible\": 900,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal",
+								"1"
+							]
+						},
+						"description": "Actualizar un almacén principal existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Almacén Principal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-principal/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-principal",
+								"1"
+							]
+						},
+						"description": "Eliminar un almacén principal"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Almacenes Secundarios",
+			"item": [
+				{
+					"name": "Crear Almacén Secundario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Almacén Norte\",\n    \"direccion\": \"Calle Norte 456, Ciudad\",\n    \"telefono\": \"+1234567891\",\n    \"email\": \"norte@empresa.com\",\n    \"responsable\": \"Carlos López\",\n    \"capacidad_total\": 500,\n    \"capacidad_disponible\": 400,\n    \"almacen_principal_id\": 1,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario"
+							]
+						},
+						"description": "Crear un nuevo almacén secundario"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos los Almacenes Secundarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario"
+							]
+						},
+						"description": "Obtener todos los almacenes secundarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Almacenes Secundarios Activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario/activos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario",
+								"activos"
+							]
+						},
+						"description": "Obtener solo los almacenes secundarios activos"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Almacenes Secundarios por Principal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario/principal/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario",
+								"principal",
+								"1"
+							]
+						},
+						"description": "Obtener almacenes secundarios filtrados por almacén principal"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Almacén Secundario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario",
+								"1"
+							]
+						},
+						"description": "Obtener un almacén secundario específico por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Almacén Secundario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Almacén Norte Actualizado\",\n    \"direccion\": \"Calle Norte 789, Ciudad\",\n    \"telefono\": \"+1234567891\",\n    \"email\": \"norte@empresa.com\",\n    \"responsable\": \"Ana Martínez\",\n    \"capacidad_total\": 600,\n    \"capacidad_disponible\": 450,\n    \"almacen_principal_id\": 1,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario",
+								"1"
+							]
+						},
+						"description": "Actualizar un almacén secundario existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Almacén Secundario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/almacenes-secundario/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"almacenes-secundario",
+								"1"
+							]
+						},
+						"description": "Eliminar un almacén secundario"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Crear Producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": \"PROD001\",\n    \"nombre\": \"Laptop Dell Inspiron\",\n    \"descripcion\": \"Laptop para oficina con procesador Intel i5\",\n    \"categoria\": \"Electrónicos\",\n    \"precio_compra\": 800.00,\n    \"precio_venta\": 1200.00,\n    \"medida_id\": 1,\n    \"stock_minimo\": 5,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/productos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						},
+						"description": "Crear un nuevo producto"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos los Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						},
+						"description": "Obtener todos los productos"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Productos Activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos/activos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"activos"
+							]
+						},
+						"description": "Obtener solo los productos activos"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Productos por Categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos/categoria/Electrónicos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"categoria",
+								"Electrónicos"
+							]
+						},
+						"description": "Obtener productos filtrados por categoría"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Producto por Código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos/codigo/PROD001",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"codigo",
+								"PROD001"
+							]
+						},
+						"description": "Obtener un producto específico por su código"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Producto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						},
+						"description": "Obtener un producto específico por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": \"PROD001\",\n    \"nombre\": \"Laptop Dell Inspiron Actualizada\",\n    \"descripcion\": \"Laptop para oficina con procesador Intel i7\",\n    \"categoria\": \"Electrónicos\",\n    \"precio_compra\": 900.00,\n    \"precio_venta\": 1350.00,\n    \"medida_id\": 1,\n    \"stock_minimo\": 3,\n    \"estado\": \"activo\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/productos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						},
+						"description": "Actualizar un producto existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Producto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						},
+						"description": "Eliminar un producto"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stock",
+			"item": [
+				{
+					"name": "Crear Stock",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"producto_id\": 1,\n    \"almacen_principal_id\": 1,\n    \"almacen_secundario_id\": null,\n    \"cantidad\": 50,\n    \"ubicacion\": \"Estante A-1\",\n    \"fecha_vencimiento\": \"2025-12-31\",\n    \"lote\": \"LOTE001\",\n    \"estado\": \"disponible\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/stock",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock"
+							]
+						},
+						"description": "Crear un nuevo registro de stock"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todo el Stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock"
+							]
+						},
+						"description": "Obtener todos los registros de stock"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Stock por Producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/producto/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"producto",
+								"1"
+							]
+						},
+						"description": "Obtener stock filtrado por producto"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Stock por Almacén Principal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/almacen-principal/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"almacen-principal",
+								"1"
+							]
+						},
+						"description": "Obtener stock filtrado por almacén principal"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Stock por Almacén Secundario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/almacen-secundario/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"almacen-secundario",
+								"1"
+							]
+						},
+						"description": "Obtener stock filtrado por almacén secundario"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Productos con Stock Bajo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/stock-bajo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"stock-bajo"
+							]
+						},
+						"description": "Obtener productos que tienen stock por debajo del mínimo"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Stock por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"1"
+							]
+						},
+						"description": "Obtener un registro de stock específico por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"producto_id\": 1,\n    \"almacen_principal_id\": 1,\n    \"almacen_secundario_id\": null,\n    \"cantidad\": 75,\n    \"ubicacion\": \"Estante A-2\",\n    \"fecha_vencimiento\": \"2025-12-31\",\n    \"lote\": \"LOTE001\",\n    \"estado\": \"disponible\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/stock/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"1"
+							]
+						},
+						"description": "Actualizar un registro de stock existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Stock",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"1"
+							]
+						},
+						"description": "Eliminar un registro de stock"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
